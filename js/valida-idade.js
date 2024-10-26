@@ -1,8 +1,8 @@
 export default function ehMaiorIdade(campo) {
+    let mensagem = '';
     const dataNascimento = new Date(campo.value);
-    if(campo.value == null || campo.value == ''){
-        console.log("Campo de nascimento não preenchido.")
-        return false;
+    if (campo.value == null || campo.value == '') {
+        mensagem = "Campo de data de nascimento não preenchido.";
     }
     const hoje = new Date();
     let idade = hoje.getFullYear() - dataNascimento.getFullYear();
@@ -16,9 +16,9 @@ export default function ehMaiorIdade(campo) {
     ) {
         idade--;
     }
-    
-    if(idade < 18){
-        console.log("É de menor de idade. "+idade+" Ano(s).");
+
+    if (idade < 18) {
+        mensagem = "É de menor de idade. " + idade + " Ano(s).";
     }
-    return idade >= 18;
+    return mensagem;
 }
